@@ -96,9 +96,9 @@ public class Scaler : UdonSharpBehaviour
         Vector3 newPositionCloserToOrigin = Vector3.Lerp(GetLocalPlayerPosition(), origin.position, 0.05f);
 
 #if UNITY_EDITOR
-        Networking.LocalPlayer.TeleportTo(newPositionCloserToOrigin, Networking.LocalPlayer.GetRotation());
-#else
         testPlayer.transform.position = newPositionCloserToOrigin;
+#else
+        Networking.LocalPlayer.TeleportTo(newPositionCloserToOrigin, Networking.LocalPlayer.GetRotation());
 #endif
     }
 

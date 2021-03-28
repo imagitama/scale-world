@@ -10,11 +10,13 @@ public class Wall : UdonSharpBehaviour
     public Scaler scaler;
 
 #if UNITY_EDITOR
-    void OnCollisionEnter(Collision collision) {
+    void OnTriggerEnter(Collider collider) {
+        Debug.Log("OnTriggerEnter");
         scaler.OnTestPlayerNextToWall();
     }
 
-    void OnCollisionExit(Collision collision) {
+    void OnTriggerExit(Collider collider) {
+        Debug.Log("OnTriggerExit");
         scaler.OnTestPlayerNotNextToWall();
     }
 #endif
